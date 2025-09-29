@@ -31,11 +31,12 @@ import android.view.Gravity
 import android.widget.TextView
 import android.graphics.Color
 
-class TicketDisplay (context: Context, attrs: AttributeSet): ListDisplay (context, attrs), PosDisplay, SwipeListener, ThemeListener {
+class TicketDisplay (val params: Jar): ListDisplay (Pos.app, null), PosDisplay, SwipeListener, ThemeListener {
 		  		  
 	 init {
 		  		  
 		  Themed.add (this)
+		  Logger.d (params.stringify ())
 	 }
 
 	 /**
@@ -126,19 +127,56 @@ class TicketDisplay (context: Context, attrs: AttributeSet): ListDisplay (contex
 	  *
 	  */
 
-	 override fun swipeUp () { }
-	 
-	 override fun swipeDown () { }
-	 
-	 override fun swipeLeft () {
+	 override fun swipeUp () {
 
-		   Control.factory ("LoadTicket").controlAction (Jar ()
-																			 .put ("dir", 1))  // get previous suspended ticket
+		  Logger.d ("ti... swipe up")
+
+		  if (params.has ("swipe")) {
+				
+				swipeAction ("swipe_up");
+		  }
 	 }
 	 
+	 override fun swipeDown () {
+		  
+		  if (params.has ("swipe")) {
+				
+				swipeAction ("swipe_down");
+		  }
+	 }
+	 
+	 override fun swipeLeft () {
+		  
+		  if (params.has ("swipe")) {
+				
+				swipeAction ("swipe_left");
+		  }
+		  else {
+				
+				Control.factory ("LoadTicket").controlAction (Jar ()
+																				  .put ("dir", 1))  // get previous suspended ticket
+		  }
+	 }
+		  
 	 override fun swipeRight () {
+				
+		  if (params.has ("swipe")) {
+					 
+				swipeAction ("swipe_right");
+		  }
+		  else {
+				
+				Control.factory ("LoadTicket").controlAction (Jar ()
+																				  .put ("dir", -1))  // get next suspended ticket
+		  }
+	 }
 
-		  Control.factory ("LoadTicket").controlAction (Jar ()
-																			 .put ("dir", -1))  // get next suspended ticket
+	 fun swipeAction (swipeDir: String) {
+		  
+		  if (params.get ("swipe").has (swipeDir)) {
+				
+				val swipe = params.get ("swipe").get (swipeDir)
+				Control.factory (swipe.getString ("control")).action (swipe.get ("params"))
+		  }
 	 }
 }

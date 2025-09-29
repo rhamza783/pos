@@ -37,7 +37,7 @@ class PosDisplays (context: Context, attrs: AttributeSet): PosLayout (context, a
 
 					 "ticket_display" -> {
 					 
-						  val ticket = TicketDisplay (context, attrs)
+						  val ticket = TicketDisplay (p)
 						  displays.add (ticket)
 						  addView (ticket)
 						  break

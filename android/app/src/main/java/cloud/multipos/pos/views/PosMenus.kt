@@ -40,6 +40,9 @@ class PosMenus (context: Context, attrs: AttributeSet): PosSwipeLayout (context,
 	 var tabs = mutableListOf <Jar> ()
 	 var curr = 0
 	 var name: String
+	 
+	 val DEFAULT_TAB_BG = "#eeeeee"
+	 val DEFAULT_TAB_SEL_BG = "#aaaaaa"
 
 	 companion object {
 		  
