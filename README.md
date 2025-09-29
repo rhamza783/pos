@@ -1,6 +1,29 @@
 # Android POS (point of sale)
 This project is an Andoid POS application integrated with a cloud based back for reporting, POS data management and control. The POS is a mature application having been installed in retail and quick serve environments in the USA and Denmark.
 
+## Update 9/29/2025
+
+- See new busines website biz.multipos.cloud
+- add configurable swipe on ticket display
+
+```
+  "pos_displays": [
+        {
+            "name": "ticket",
+            "type": "ticket_display",
+            "layout": "ticket",
+				"swipe": {"swipe_up": {"control": "VoidSale",
+											  "params": {}},
+							 "swipe_down": {"control": "VoidItem",
+												 "params": {}},
+							 "swipe_left": {"control": "LoadTicket",
+												 "params": {"dir": 1}},
+							 "swipe_right": {"control": "LoadTicket",
+												  "params": {"dir": -1}}}
+        }
+    ]
+```
+
 ## Update 9/5/2025
 
 - Move ticket management functions into the Ticket model
