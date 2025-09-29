@@ -13,8 +13,8 @@ plugins {
 
 android {
 
-	 namespace "cloud.multipos.pos"
-    compileSdkVersion 31
+	 namespace="cloud.multipos.pos"
+    compileSdkVersion 33
     defaultConfig {
 	  
         applicationId "cloud.multipos.pos"
@@ -23,7 +23,8 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         versionCode 133
 		  buildConfigField "Boolean", "USE_CAMERA", "false" 
-		  buildConfigField "String", "VERSION_NAME", "\"2.1.133\"" 
+		  buildConfigField "String", "VERSION_NAME", "\"2.1.133\""
+		  android.buildFeatures.buildConfig = true
     }
 
 	 signingConfigs {
@@ -41,25 +42,25 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
+            //  signingConfig signingConfigs.release
         }
     }
 	 
 	 buildFeatures {
-        viewBinding true
+        viewBinding=true
     }
 	 
 	 dataBinding {
-        enabled true
+        enabled=true
     }
 	 
 	 viewBinding {
-        enabled true
+        enabled=true
     }
 	 
 	 lintOptions {
-		  checkReleaseBuilds false
-		  abortOnError false
+		  checkReleaseBuilds=false
+		  abortOnError=false
 	 }
 
 	 compileOptions {
@@ -93,7 +94,7 @@ dependencies {
 	 androidTestImplementation 'androidx.test.ext:junit:1.1.1'
 	 androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
 	 implementation 'com.android.volley:volley:1.2.1'
-	 kapt 'frankiesardo:icepick-processor:3.2.0'
+	 //kapt 'frankiesardo:icepick-processor:3.2.0'
 	 kapt 'com.google.auto.service:auto-service:1.0-rc2'
 	 implementation 'androidx.core:core-ktx:latest_version'
 
@@ -105,7 +106,7 @@ dependencies {
 				  
 	 implementation fileTree(dir: 'libs', include: ['*.jar'])
 	 implementation fileTree(dir: 'libs', include: ['*.aar'])
-	 implementation 'com.sumup:merchant-sdk:3.2.2'
+	 // implementation 'com.sumup:merchant-sdk:3.2.2'
 	 // implementation 'com.journeyapps:zxing-android-embedded:4.3.0'
 
 	 // kotlin
