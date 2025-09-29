@@ -364,8 +364,6 @@ class Pos (): AppCompatActivity () {
 				setContentView (R.layout.pos_register)
 				overlay = findViewById (R.id.register_overlay) as LinearLayout
 		  }
-		  
-		  Control.factory ("UploadLog").action (Jar ())
 	 }
 
 	 fun posInit (result: Jar) {
