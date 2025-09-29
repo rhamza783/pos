@@ -97,7 +97,7 @@ class ControlTextButton (params: Jar, controls: MutableMap <String, Control>): C
 		  
 		  val colorList = ColorStateList (arrayOf (intArrayOf(-android.R.attr.state_enabled),
 																 intArrayOf(android.R.attr.state_enabled)),
-													 intArrayOf (Color.DKGRAY,
+													 intArrayOf (Color.WHITE,
 																	 Color.parseColor (color)))
 		  button.setBackgroundTintList (colorList)
 		  
@@ -108,7 +108,7 @@ class ControlTextButton (params: Jar, controls: MutableMap <String, Control>): C
 													  intArrayOf (Color.BLACK,
 																	  Color.parseColor (Pos.app.getString (R.color.dk_gray))))
 		  
-		  button.strokeWidth = 3
+		  // button.strokeWidth = 3
 		  button.strokeColor = strokeList
 		  button.setText (params.getString ("text"))
 		  button.setTypeface (Views.buttonFont ())

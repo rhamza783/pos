@@ -52,7 +52,7 @@ import android.view.View.OnLongClickListener
  */
 
 class ControlNavButton (params: Jar, val posMenuControl: PosMenuControl): LinearLayout (Pos.app.activity) {
-
+	 
 	 init {
 		  
 		  Pos.app.inflater.inflate (R.layout.pos_control_button, this)
@@ -78,7 +78,7 @@ class ControlNavButton (params: Jar, val posMenuControl: PosMenuControl): Linear
 				
 				// lighten the color
 				
-				color = color.replace ("#", "#30")
+				color = color.replace ("#", "#50")
 		  }
 		  
 		  var tmp = Color.WHITE
