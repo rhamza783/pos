@@ -79,7 +79,7 @@
   <!-- menu buttons -->
   
   <dimen name="menu_button_text">16sp</dimen>
-  <dimen name="menu_button_padding_start">4dp</dimen>
-  <dimen name="menu_button_padding_top">4dp</dimen>
+  <dimen name="menu_button_padding_start">5dp</dimen>
+  <dimen name="menu_button_padding_top">5dp</dimen>
 
 </resources>
